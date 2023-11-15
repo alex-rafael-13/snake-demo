@@ -3,8 +3,10 @@ using UnityEngine;
 
 public class Snake : MonoBehaviour
 {
+    //Setting the starting direction to the right
     private Vector2 _direction = Vector2.right;
 
+    //Transform is a fundamental component in unity as it allows you to manipulate the position, rotation, and scale of a GameObject
     private List<Transform> _segments = new List<Transform>();
     public Transform segmentPrefab;
     public int InitialSize = 4;

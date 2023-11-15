@@ -21,6 +21,12 @@ public class Food : MonoBehaviour
         this.transform.position = new Vector3(Mathf.Round(x), Mathf.Round(y), 0);
     }
 
+    //For Snake file
+    public void ResetFood()
+    {
+        RandomizePosition();
+    }
+
     //Only available if object is 2D trigger
     private void OnTriggerEnter2D(Collider2D other)
     {

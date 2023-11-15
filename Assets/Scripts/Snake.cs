@@ -20,14 +20,39 @@ public class Snake : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.W)){
-            _direction = Vector2.up;
-        } else if (Input.GetKeyDown(KeyCode.S)) {
-            _direction = Vector2.down;
-        } else if (Input.GetKeyDown(KeyCode.D)){
-            _direction = Vector2.right;
-        } else if (Input.GetKeyDown(KeyCode.A)){
-            _direction = Vector2.left;
+        //if(Input.GetKeyDown(KeyCode.W)){
+        //    _direction = Vector2.up;
+        //} else if (Input.GetKeyDown(KeyCode.S)) {
+        //    _direction = Vector2.down;
+        //} else if (Input.GetKeyDown(KeyCode.D)){
+        //    _direction = Vector2.right;
+        //} else if (Input.GetKeyDown(KeyCode.A)){
+        //    _direction = Vector2.left;
+        //}
+
+        if (_direction.y == 0)
+        {
+            if (Input.GetKeyDown(KeyCode.W) && _direction != Vector2.down)
+            {
+                _direction = Vector2.up;
+            }
+            else if (Input.GetKeyDown(KeyCode.S) && _direction != Vector2.up)
+            {
+                _direction = Vector2.down;
+            }
+        }
+
+        // Check for input only if the snake is not moving vertically
+        if (_direction.x == 0)
+        {
+            if (Input.GetKeyDown(KeyCode.A) && _direction != Vector2.right)
+            {
+                _direction = Vector2.left;
+            }
+            else if (Input.GetKeyDown(KeyCode.D) && _direction != Vector2.left)
+            {
+                _direction = Vector2.right;
+            }
         }
     }
 

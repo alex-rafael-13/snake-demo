@@ -11,6 +11,8 @@ public class Snake : MonoBehaviour
     public Transform segmentPrefab;
     public int InitialSize = 4;
 
+    public Food foodInstance;
+
     private void Start()
     {
         ResetGame();
@@ -70,6 +72,8 @@ public class Snake : MonoBehaviour
         }
 
         this.transform.position = Vector3.zero;
+        foodInstance.ResetFood();
+        _direction = Vector2.right;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
